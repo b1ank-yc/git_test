@@ -1,0 +1,49 @@
+/* 
+
+* - select all
+. - select class
+# - select id
+
+.read,
+.unread {
+    color: white;
+    ... then u can edit each of those separately
+    grouping selectors
+}
+
+.subsection.header {
+    <div class="subsection header"> ... </div>
+    used to select things that have more than one class assigned
+    also works with class + id etc. ex. .subsection#header
+    chaining selectors
+}
+
+.ancestor .contents {
+    <div class="ancestor">
+        <div class="contents">
+            <div class="contents"></div>
+        </div>
+    </div>
+    it selects both line 23 and 24
+    descendant combinator
+}
+
+text-align: its horizontal;
+font-family: "Times New Roman", serif;
+font-size: 22px;
+font-weight
+
+<style> </style> inside head works too - internal
+<div style="color: white; background-color: black;">...</div> - inline
+
+*/
+
+/* 
+
+const name = "chris ${surname}"; \n == <br> also \'
+
+*/
+
+* {
+    color: purple;
+}
