@@ -41,7 +41,7 @@ function separateNumbers(str) {
         } else {
             string.push(arr[i])
         }
-    }
+    }   
 
     return [string.join(""), number.join("")];
 }
