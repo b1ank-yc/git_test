@@ -1,48 +1,96 @@
-let add7 = (num) => alert(num + 7);
+//parentNode.appendChild(childNode)
+//parentNode.insertBefore(newNode, referenceNode)
+//parentNode.removeChild(child)
 
-let multiply = (num1, num2) => alert(num1 * num2);
+//div.style.color = "blue";
+//div.setAttribute("style", "color: blue; background: white;");
 
-function capitalize(string) {
-    if (!string) return "";
-    let lowerCase = string.toLowerCase();
-    let letter = lowerCase[0].toUpperCase();
-    return letter + lowerCase.slice(1); 
+//div.style.backgroundColor;
+//div.style["background-color"];
+
+
+let inputVar = document.querySelector(".inp");
+let buttonVar = document.querySelector(".btn");
+let listVar = document.querySelector(".lst");
+
+buttonVar.classList.add('btn');
+
+
+function capitalize(str) {
+    if (!str) return "";
+
+    let res = str.split("");
+
+    for (let i = 0; i < res.length; i++) {
+        if (res[i] === " ") res.splice(i, 1);
+    }
+    
+    res = res[0].toUpperCase() + res.slice(1).join("");
+
+    return res;
 }
 
-let lastLetter = (string) => string[string.length - 1];
+function separateNumbers(str) {
+    let arr = str.split("");
+    let string = [];
+    let number = [];
 
-function fizzBuzzPrinter(num) {
-
-    for (let i = 1; i <= num; i++) {
-
-        if (i % 3 === 0 && i % 5 === 0) {
-            console.log("FizzBuzz");
-        } else if (i % 3 === 0) {
-            console.log("Fizz");
-        } else if (i % 5 === 0) {
-            console.log("Buzz");
+    for (let i = 0; i < arr.length; i++) {
+        if ("1234567890".includes(arr[i])) {
+            number.push(arr[i]);
         } else {
-            console.log(i);
-        }
-    }
-}
-
-function parseStringIntoWords(string) {
-
-    let tempString = "";
-
-    for (i = 0; i <= string.length; i++) {
-        let letter = string[i];
-
-        if (".,!?-:\"\'\`".includes(string[i])) {
-            continue;
-        } else if ((string[i] !== " ")) {
-            tempString += letter;
-        } else if (string[i] === " ") {
-            tempString += "\n";
+            string.push(arr[i])
         }
     }
 
-    return console.log(tempString);
+    return [string.join(""), number.join("")];
 }
+
+
+function addItem(event) {
+    let [str, num] = separateNumbers(inputVar.value);    
+
+    inputVar.value = "";
+
+    const li = document.createElement('li');
+    const spanStr = document.createElement('span');
+    const spanNum = document.createElement('span');
+
+    li.appendChild(spanNum);
+    li.appendChild(spanStr);
+
+    spanStr.classList.add("spanStr");
+    spanNum.classList.add("spanNum");
+
+    spanStr.textContent = capitalize(str);
+    if (num === "") {
+        spanNum.textContent = "x0";
+        spanNum.style.color = "whitesmoke";
+        spanStr.style.color = "#C9A84C";
+    }
+    if (parseInt(num) > 0) spanNum.textContent = "x" + num;
+    if (num < 10) spanNum.style.marginRight = "36px";
+    if (num > 99) spanNum.style.marginRight = "13px";
+
+
+    if (str !== "") {
+        listVar.appendChild(li);
+        inputVar.focus();
+    }
+
+    li.addEventListener('click', () => listVar.removeChild(li));
+}
+
+
+
+buttonVar.addEventListener('click', addItem);
+
+inputVar.addEventListener('keydown', (event) => {
+    if (event.key === "Enter") {
+        
+        buttonVar.click();
+    };
+});
+
+
 

@@ -1,49 +1,94 @@
-/* 
-
-* - select all
-. - select class
-# - select id
-
-.read,
-.unread {
-    color: white;
-    ... then u can edit each of those separately
-    grouping selectors
-}
-
-.subsection.header {
-    <div class="subsection header"> ... </div>
-    used to select things that have more than one class assigned
-    also works with class + id etc. ex. .subsection#header
-    chaining selectors
-}
-
-.ancestor .contents {
-    <div class="ancestor">
-        <div class="contents">
-            <div class="contents"></div>
-        </div>
-    </div>
-    it selects both line 23 and 24
-    descendant combinator
-}
-
-text-align: its horizontal;
-font-family: "Times New Roman", serif;
-font-size: 22px;
-font-weight
-
-<style> </style> inside head works too - internal
-<div style="color: white; background-color: black;">...</div> - inline
-
-*/
-
-/* 
-
-const name = "chris ${surname}"; \n == <br> also \'
-
-*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
 * {
-    color: purple;
+    font-family: 'Roboto', sans-serif;
+}
+
+html {
+    background-color: white;
+}
+
+body {
+    width: 80vw;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    align-items: center;
+    background-color: whitesmoke;
+    border-radius: 40px;
+    margin: 0 auto;
+    margin-top: 48px;
+    
+
+    box-shadow: 
+        0 1px 3px rgba(0, 0, 0, 0.12),
+        0 4px 8px rgba(0, 0, 0, 0.08);
+}
+
+label {
+    display: inline;
+    font-size: 20px;
+    color: 	#333333;
+    padding: 4px;
+
+}
+
+input {
+    background-color: #E8E8E8;
+    border: 4px solid #E8E8E8;
+    border-radius: 12px;
+    margin-left: 4px;
+    color: black;
+    font-size: 14px;
+    padding: 2px 8px 2px 8px;
+    outline: none;
+
+    box-shadow: 
+        0 1px 3px rgba(0, 0, 0, 0.12),
+        0 4px 8px rgba(0, 0, 0, 0.08);
+}
+
+ul {
+    margin-top: 32px;
+}
+
+li {
+    list-style-type: none;
+    margin-bottom: 8px;;
+}
+
+.headline {
+    font-weight: bold;
+    font-size: 32px;
+    margin-top: 22px;
+    margin-bottom: 22px;
+}
+
+.btn {
+    background-color:#0F172A;
+    color: #E8E8E8;
+    font-weight: bold;
+
+    border-radius: 12px;
+    border: 2px solid black;
+    padding: 4px 12px;
+    margin-left: 4px;
+
+    box-shadow: 
+        0 1px 3px rgba(0, 0, 0, 0.12),
+        0 4px 8px rgba(0, 0, 0, 0.08);
+}
+
+.spanStr {
+    font-size: 20px;
+    margin-left: 24px;
+    color: #5B7FA6;
+
+}
+
+.spanNum {
+    font-size: 16px;
+    margin-right: 24px;
+    font-weight: bold;
 }
